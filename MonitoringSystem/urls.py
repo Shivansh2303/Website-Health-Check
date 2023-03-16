@@ -24,9 +24,6 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cron/', include(django_serverless_cron_urls)),
     path("dashboard/",views.SiteCreateAPIView().as_view(),name='home'),
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    
-    
 ]

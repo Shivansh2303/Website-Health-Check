@@ -27,9 +27,10 @@ print(BASE_DIR)
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.environ.get('DEBUG'))
+# DEBUG = str(os.environ.get('DEBUG'))
+# DEBUG=False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'django_crontab',
     'django_serverless_cron',
+    # 'urlparse'
 ]
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -91,6 +93,18 @@ WSGI_APPLICATION = 'MonitoringSystem.wsgi.application'
 
 
 # Database
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'postgres',
+#        'USER': 'postgres',
+#        'PASSWORD': 'Sc@vzxv1x',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+# }
+
+
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {

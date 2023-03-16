@@ -3,6 +3,7 @@ from .models import HealthCheck
 from django.http import HttpResponse
 from rest_framework import generics
 import requests
+from datetime import datetime 
 from django.shortcuts import get_object_or_404
 from .utils import statusMail
 
@@ -20,6 +21,8 @@ def check_system():
         resp=requests.get(url)
         status=resp.status_code
         site.site_status=status
+        time=datetime.now()
+        site.last_check_at=time
         data={
             "to_email":site.email
               }
